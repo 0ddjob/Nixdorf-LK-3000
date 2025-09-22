@@ -1,0 +1,4 @@
+﻿Designator,Quantity,Value,Footprint,Package,MPN,DNP,Mount_Type,Description
+C1,1,100nF,C_Disc_D3.0mm_W2.0mm_P2.50mm,,,,tht,Unpolarized capacitor
+J1,1,Cartridge,LK-3000_Cartridge,,,,tht,"Generic connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)"
+J2,1,Breakout,PinHeader_1x16_P2.54mm_Horizontal,,,,tht,"Generic connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)"

@@ -4933,10 +4933,10 @@
 		)
 		(uuid "2864d7c0-e264-448e-b137-772c425df83b")
 	)
-	(text_box "Power Input (on Display Board)\nV_{OUT} and +5V must be shorted in the cartridge to enable the LK-3000 to power on."
+	(text_box "Power Input (on Display Board)\nV_{OUT} and +5V must be bridged in the cartridge to enable the LK-3000 to power on.\nBattery is four AA NiCd cells connected in series."
 		(exclude_from_sim no)
 		(at 26.67 172.72 0)
-		(size 81.28 60.96)
+		(size 88.9 60.96)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -4953,10 +4953,10 @@
 		)
 		(uuid "884ce75d-ef53-40fb-a7ce-e3ec3b19d27c")
 	)
-	(text_box "Display Board\nPower jumper supplies power to the Keyboard Interface board\nDISP1 is the leftmost display module\nDISP4 is the rightmost display module"
+	(text_box "Display Board\nPower jumper supplies power to the Keyboard Interface board\nDISP1 is the leftmost display module\nDISP4 is the rightmost display module\nCartridge connector is \"Teledyne Kinetics S 426U016\""
 		(exclude_from_sim no)
-		(at 255.27 24.13 0)
-		(size 129.54 149.86)
+		(at 255.27 22.86 0)
+		(size 129.54 151.13)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -12562,10 +12562,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "71d44c9a-76ab-4bc4-bee0-2b387e530fa4")
+			(uuid "71d44c9a-76ab-4bc4-bee0-2b387e530fa5")
 		)
 		(pin "2"
-			(uuid "237e5825-a17e-47b3-ae1c-a39c5de33ed7")
+			(uuid "237e5825-a17e-47b3-ae1c-a39c5de33ed8")
 		)
 		(instances
 			(project ""
@@ -13337,10 +13337,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "71d44c9a-76ab-4bc4-bee0-2b387e530fa4")
+			(uuid "71d44c9a-76ab-4bc4-bee0-2b387e530fa6")
 		)
 		(pin "2"
-			(uuid "237e5825-a17e-47b3-ae1c-a39c5de33ed7")
+			(uuid "237e5825-a17e-47b3-ae1c-a39c5de33ed9")
 		)
 		(instances
 			(project ""
@@ -13473,10 +13473,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "71d44c9a-76ab-4bc4-bee0-2b387e530fa4")
+			(uuid "71d44c9a-76ab-4bc4-bee0-2b387e530fa7")
 		)
 		(pin "2"
-			(uuid "237e5825-a17e-47b3-ae1c-a39c5de33ed7")
+			(uuid "237e5825-a17e-47b3-ae1c-a39c5de33eda")
 		)
 		(instances
 			(project ""
