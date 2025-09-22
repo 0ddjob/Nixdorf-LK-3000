@@ -44,6 +44,10 @@ These are the cartridges that I'm aware of:
 - LK-3500: Electronic Notepad
 - LK-3900: Calculator
 
+### LK-3050 Spanish Language 
+Simple cartridge with processor (containing its own ROM & RAM) plus language ROM.
 ![LK-3050 Cartridge PCB](/Images/Nixdorf_LK3000_LK3050_PCB.png)
 
+### LK-3500 Electronic Notepad
+A more sophisticated cartridge with processor & rechargeable (NiCd) battery-backed RAM.
 ![LK-3500 Cartridge PCB](/Images/Nixdorf_LK3000_LK3500_PCB.png)
