@@ -4933,10 +4933,10 @@
 		)
 		(uuid "2864d7c0-e264-448e-b137-772c425df83b")
 	)
-	(text_box "Power Input (on Display Board)\nV_{OUT} and +5V must be bridged in the cartridge to enable the LK-3000 to power on.\nBattery is four AA NiCd cells connected in series."
+	(text_box "Power Input (on Display Board)\nV_{OUT} and +5V must be bridged in the cartridge to enable the LK-3000 to power on.\nBattery is four AA NiCd cells connected in series.\nV_{IN} is the input power from the PSU.\nV_{OUT} is the regulated +5V used by the system.\nV_{BATT} is the battery power source (charging/discharging)."
 		(exclude_from_sim no)
-		(at 26.67 172.72 0)
-		(size 88.9 60.96)
+		(at 26.67 166.37 0)
+		(size 88.9 67.31)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -7628,6 +7628,16 @@
 			(justify left bottom)
 		)
 		(uuid "84b719cd-38b5-4551-b426-c356235c1630")
+	)
+	(label "V_{IN}"
+		(at 54.61 194.31 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8fe55ca2-409c-412d-b823-deca14143d89")
 	)
 	(label "D_{6}"
 		(at 313.69 156.21 0)
