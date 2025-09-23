@@ -6,8 +6,8 @@
 	(paper "A3")
 	(title_block
 		(title "Nixdorf LK-3000 Personal Computer")
-		(date "21/SEP/2025")
-		(rev "WORK IN PROGRESS")
+		(date "23/SEP/2025")
+		(rev "A")
 		(company "Brett Hallen")
 		(comment 1 "www.youtube.com/@Brfff")
 	)
@@ -14373,7 +14373,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C_Polarized"
+		(property "Value" "1µF"
 			(at 85.09 35.9409 0)
 			(effects
 				(font
