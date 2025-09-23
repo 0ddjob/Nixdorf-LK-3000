@@ -5,6 +5,7 @@ Information about the Nixdorf LK-3000 personal computer.
 
 ## Videos
 - [Part 1](https://youtu.be/9jknng2B5vs)
+- [Part 2](https://youtu.be/iGiR7imZPvE)
 
 ## [Schematic](/LK3000_Schematics)
 A schematic (KiCad 9) of the LK-3000.  The machine is essentially just a keyboard & display with the cartridges containing the processor, ROM and RAM (as appropriate).
@@ -18,6 +19,9 @@ A design for a cartridge with breakout pin header so an external device can be c
 A design for a cartridge with prototyping area.
 
 ![LK-3000 prototyping cartridge](/Images/Nixdorf_LK-3000_Prototyping_Cartridge.png)
+
+## [Logic Analyser Traces](/Saleae)
+Signalling traces taken from the cartridge interface.  These were captured with the [Saleae logic analyser](https://www.saleae.com/) - their Logic 2 software is free to download & should open the file in "demo mode" (no need for the actual hardware).
 
 ## DL-1414 Display Modules
 The LK-3000 uses four 4-character display modules (16 characters in total).  These parts are obsolete now but can still be found ... including in the LK-3000 obviously.<br>
