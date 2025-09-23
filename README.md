@@ -3,6 +3,9 @@ Information about the Nixdorf LK-3000 personal computer.
 
 ![Nixdorf LK-3000 personal computer](/Images/Nixdorf_LK-3000.png)
 
+## Videos
+- [Part 1](https://youtu.be/9jknng2B5vs)
+
 ## [Schematic](/LK3000_Schematics)
 A schematic (KiCad 9) of the LK-3000.  The machine is essentially just a keyboard & display with the cartridges containing the processor, ROM and RAM (as appropriate).
 
