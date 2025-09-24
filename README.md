@@ -7,8 +7,14 @@ Information about the Nixdorf LK-3000 personal computer.
 - [Part 1: first look & disassembly](https://youtu.be/9jknng2B5vs)
 - [Part 2: let's start hacking it](https://youtu.be/iGiR7imZPvE)
 
+## [Arduino Code](/Arduino/Test/Test.ino)
+The first new software written for the LK-3000 in 40 years?!  Some test code to see how it works - replaced the cartridge connector with a 16-way pin header for easy wiring up to an Arduino.
+
 ## [Schematic](/LK3000_Schematics)
 A schematic (KiCad 9) of the LK-3000.  The machine is essentially just a keyboard & display with the cartridges containing the processor, ROM and RAM (as appropriate).
+
+## [Keyboard](/LK3000_Keyboard)
+With the machine out of the case for testing/development with the Arduino, the original keyboard is not so easy to use.  So here's a simple replacement using Gateron KS-33 low profile key switches.
 
 ## [Breakout Cartridge](/LK3000_Breakout_Cartridge)
 A design for a cartridge with breakout pin header so an external device can be connected for development/testing.
