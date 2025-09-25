@@ -1,5 +1,7 @@
 # Nixdorf LK-3000
-Information about the Nixdorf LK-3000 personal computer.
+Information about the Nixdorf LK-3000 personal computer.<br>
+
+The cartridges use the Mostek MK3870 CPU and MK3600 ROM.  The CPU contains its own ROM and RAM which can be [dumped](https://github.com/blackjetrock/dumper_m3780) thanks to the existence of a TEST pin!<br>
 
 ![Nixdorf LK-3000 personal computer](/Images/Nixdorf_LK-3000.png)
 
@@ -8,7 +10,11 @@ Information about the Nixdorf LK-3000 personal computer.
 - [Part 2: let's start hacking it](https://youtu.be/iGiR7imZPvE)
 
 ## [Arduino Code](/Arduino/Test/Test.ino)
-The first new software written for the LK-3000 in 40 years?!  Some test code to see how it works - replaced the cartridge connector with a 16-way pin header for easy wiring up to an Arduino.
+The first new software written for the LK-3000 in 40 years?!  Some test code to see how it works - replaced the cartridge connector with a 16-way pin header for easy wiring up to an Arduino.<br>
+
+Check also the [July 1980 issue of Popular Electronics](/Documentation/Poptronics_July_1980.pdf) that describes how to re-use the LK-3000.
+
+## [Dumping the MK3870 firmware](https://hackaday.com/tag/mk3870/)
 
 ## [Schematic](/LK3000_Schematics)
 A schematic (KiCad 9) of the LK-3000.  The machine is essentially just a keyboard & display with the cartridges containing the processor, ROM and RAM (as appropriate).
