@@ -22,6 +22,8 @@ A schematic (KiCad 9) of the LK-3000.  The machine is essentially just a keyboar
 ## [Keyboard](/LK3000_Keyboard)
 With the machine out of the case for testing/development with the Arduino, the original keyboard is not so easy to use.  So here's a simple replacement using Gateron KS-33 low profile key switches.
 
+![LK-3000 development keyboard](/Images/Nixdorf_LK3000_Development_Keyboard.png)
+
 ## [Breakout Cartridge](/LK3000_Breakout_Cartridge)
 A design for a cartridge with breakout pin header so an external device can be connected for development/testing.
 
