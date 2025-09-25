@@ -1,0 +1,35 @@
+﻿pos_x,pos_y,rotation,side,designator,mpn,pack,footprint,value,mount_type
+158.22,-55.2,90.0,top,J1,,,PinHeader_1x14_P2.54mm_Horizontal,Keyboard,tht
+29.7,-65.5,0.0,top,SW1,,,SW_PUSH-12mm_Wuerth-430476085716,A [MET],tht
+45.7,-97.5,0.0,top,SW10,,,SW_PUSH-12mm_Wuerth-430476085716,T [+/-],tht
+61.7,-97.5,0.0,top,SW11,,,SW_PUSH-12mm_Wuerth-430476085716,U [M+],tht
+77.7,-97.5,0.0,top,SW12,,,SW_PUSH-12mm_Wuerth-430476085716,V [0],tht
+93.7,-65.5,0.0,top,SW13,,,SW_PUSH-12mm_Wuerth-430476085716,E [7],tht
+109.7,-65.5,0.0,top,SW14,,,SW_PUSH-12mm_Wuerth-430476085716,F [8],tht
+125.7,-65.5,0.0,top,SW15,,,SW_PUSH-12mm_Wuerth-430476085716,G [9],tht
+141.7,-65.5,0.0,top,SW16,,,SW_PUSH-12mm_Wuerth-430476085716,H [÷],tht
+93.7,-81.5,0.0,top,SW17,,,SW_PUSH-12mm_Wuerth-430476085716,N [4],tht
+109.7,-81.5,0.0,top,SW18,,,SW_PUSH-12mm_Wuerth-430476085716,O [5],tht
+125.7,-81.5,0.0,top,SW19,,,SW_PUSH-12mm_Wuerth-430476085716,P [6],tht
+45.7,-65.5,0.0,top,SW2,,,SW_PUSH-12mm_Wuerth-430476085716,B [US],tht
+141.7,-81.5,0.0,top,SW20,,,SW_PUSH-12mm_Wuerth-430476085716,Q [+],tht
+93.7,-97.5,0.0,top,SW21,,,SW_PUSH-12mm_Wuerth-430476085716,W [1],tht
+109.7,-97.5,0.0,top,SW22,,,SW_PUSH-12mm_Wuerth-430476085716,X [2],tht
+125.7,-97.5,0.0,top,SW23,,,SW_PUSH-12mm_Wuerth-430476085716,Y [3],tht
+141.7,-97.5,0.0,top,SW24,,,SW_PUSH-12mm_Wuerth-430476085716,Z [.],tht
+205.7,-81.5,0.0,top,SW25,,,SW_PUSH-12mm_Wuerth-430476085716,? [P2},tht
+189.7,-81.5,0.0,top,SW26,,,SW_PUSH-12mm_Wuerth-430476085716,bs [P1],tht
+157.7,-81.5,0.0,top,SW27,,,SW_PUSH-12mm_Wuerth-430476085716,R [-],tht
+157.7,-65.5,0.0,top,SW28,,,SW_PUSH-12mm_Wuerth-430476085716,I [x],tht
+205.7,-97.5,0.0,top,SW29,,,SW_PUSH-12mm_Wuerth-430476085716,def [P4],tht
+61.7,-65.5,0.0,top,SW3,,,SW_PUSH-12mm_Wuerth-430476085716,C [X->M],tht
+189.7,-97.5,0.0,top,SW30,,,SW_PUSH-12mm_Wuerth-430476085716,stp [P3],tht
+157.7,-97.5,0.0,top,SW31,,,SW_PUSH-12mm_Wuerth-430476085716,sp [=],tht
+189.7,-65.5,0.0,top,SW32,,,SW_PUSH-12mm_Wuerth-430476085716,f,tht
+205.7,-65.5,0.0,top,SW33,,,SW_PUSH-12mm_Wuerth-430476085716,clr,tht
+77.7,-65.5,0.0,top,SW4,,,SW_PUSH-12mm_Wuerth-430476085716,D [K],tht
+29.7,-81.5,0.0,top,SW5,,,SW_PUSH-12mm_Wuerth-430476085716,J [C1],tht
+45.7,-81.5,0.0,top,SW6,,,SW_PUSH-12mm_Wuerth-430476085716,K [C2],tht
+61.7,-81.5,0.0,top,SW7,,,SW_PUSH-12mm_Wuerth-430476085716,L [RM],tht
+77.7,-81.5,0.0,top,SW8,,,SW_PUSH-12mm_Wuerth-430476085716,M [%],tht
+29.7,-97.5,0.0,top,SW9,,,SW_PUSH-12mm_Wuerth-430476085716,S [EXC],tht

@@ -5,7 +5,7 @@
 	(uuid "198bd8e4-e6dc-49aa-953c-e89115699373")
 	(paper "A4")
 	(title_block
-		(title "Nixdorf LK-3000 Keyboard")
+		(title "Nixdorf LK-3000 Development Keyboard")
 		(date "24/SEP/2025")
 		(rev "A")
 		(company "Brett Hallen")
@@ -1554,7 +1554,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 190.2967 50.8 0)
 			(effects
@@ -1576,7 +1576,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 188.6034 53.34 0)
 			(effects
@@ -1598,7 +1598,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27fa")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 189.9943 83.82 0)
 			(effects
@@ -1620,7 +1620,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27fb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 188.6034 71.12 0)
 			(effects
@@ -1642,7 +1642,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27fc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 189.0267 73.66 0)
 			(effects
@@ -1664,7 +1664,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27fd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 189.0267 76.2 0)
 			(effects
@@ -1686,7 +1686,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27fe")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 189.0267 78.74 0)
 			(effects
@@ -1708,7 +1708,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27ff")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 189.0267 81.28 0)
 			(effects
@@ -1730,7 +1730,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc2800")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 188.6034 63.5 0)
 			(effects
@@ -1752,7 +1752,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc2801")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 188.6034 68.58 0)
 			(effects
@@ -1774,7 +1774,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc2802")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 188.6034 66.04 0)
 			(effects
@@ -1796,7 +1796,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc2803")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 188.6034 60.96 0)
 			(effects
@@ -1818,7 +1818,7 @@
 			)
 			(justify right)
 		)
-		(uuid "58c0e581-d86e-4804-87d7-7ac22acc27f7")
+		(uuid "58c0e581-d86e-4804-87d7-7ac22acc2804")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 188.6034 58.42 0)
 			(effects
@@ -2248,7 +2248,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 146.05 55.88 0)
 			(effects
 				(font
@@ -2316,7 +2316,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 115.57 135.89 0)
 			(effects
 				(font
@@ -2384,7 +2384,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 130.81 95.25 0)
 			(effects
 				(font
@@ -2451,7 +2451,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 115.57 151.13 0)
 			(effects
 				(font
@@ -2518,7 +2518,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 100.33 151.13 0)
 			(effects
 				(font
@@ -2586,7 +2586,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 146.05 135.89 0)
 			(effects
 				(font
@@ -2654,7 +2654,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 100.33 82.55 0)
 			(effects
 				(font
@@ -2722,7 +2722,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 146.05 82.55 0)
 			(effects
 				(font
@@ -2790,7 +2790,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 100.33 68.58 0)
 			(effects
 				(font
@@ -2858,7 +2858,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 100.33 107.95 0)
 			(effects
 				(font
@@ -2926,7 +2926,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 130.81 55.88 0)
 			(effects
 				(font
@@ -2994,7 +2994,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 115.57 82.55 0)
 			(effects
 				(font
@@ -3061,7 +3061,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 146.05 151.13 0)
 			(effects
 				(font
@@ -3129,7 +3129,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 130.81 120.65 0)
 			(effects
 				(font
@@ -3197,7 +3197,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 130.81 68.58 0)
 			(effects
 				(font
@@ -3264,7 +3264,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 130.81 151.13 0)
 			(effects
 				(font
@@ -3332,7 +3332,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 130.81 107.95 0)
 			(effects
 				(font
@@ -3400,7 +3400,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 100.33 55.88 0)
 			(effects
 				(font
@@ -3468,7 +3468,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 100.33 95.25 0)
 			(effects
 				(font
@@ -3536,7 +3536,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 115.57 55.88 0)
 			(effects
 				(font
@@ -3604,7 +3604,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 100.33 120.65 0)
 			(effects
 				(font
@@ -3672,7 +3672,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 146.05 95.25 0)
 			(effects
 				(font
@@ -3740,7 +3740,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 130.81 135.89 0)
 			(effects
 				(font
@@ -3808,7 +3808,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 115.57 107.95 0)
 			(effects
 				(font
@@ -3875,7 +3875,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 196.85 114.3 0)
 			(effects
 				(font
@@ -3943,7 +3943,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 115.57 120.65 0)
 			(effects
 				(font
@@ -4011,7 +4011,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 130.81 82.55 0)
 			(effects
 				(font
@@ -4079,7 +4079,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 115.57 68.58 0)
 			(effects
 				(font
@@ -4147,7 +4147,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 100.33 135.89 0)
 			(effects
 				(font
@@ -4215,7 +4215,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 146.05 107.95 0)
 			(effects
 				(font
@@ -4283,7 +4283,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 115.57 95.25 0)
 			(effects
 				(font
@@ -4351,7 +4351,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 146.05 68.58 0)
 			(effects
 				(font
@@ -4419,7 +4419,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Clueless_Engineer:SW_Gateron_LowProfile_THT"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
 			(at 146.05 120.65 0)
 			(effects
 				(font
