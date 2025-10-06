@@ -11,25 +11,25 @@ const int DWSTRB_PIN = A0; // Display write strobe (active low)
 const int KEYSTRB_PIN = A1; // Keyboard strobe (active low)
 const int CLR_PIN = A2; // Clear key input (active low)
 
-//////////////////////////////////////
-// LK-3000 Cartridge Port           //
-// Pin  1 = ~CLR button             //
-// Pin  2 = ~KEYSTB keyboard strobe //
-// Pin  3 = ~DWSTB display strobe   //
-// Pin  4 = A3                      //
-// Pin  5 = A2                      //
-// Pin  6 = Vout                    //
-// Pin  7 = Ground                  //
-// Pin  8 = +5V                     //
-// Pin  9 = D5                      //
-// Pin 10 = D4                      //
-// Pin 11 = A0                      //
-// Pin 12 = A1                      //
-// Pin 13 = D0                      //
-// Pin 14 = D3                      //
-// Pin 14 = D2                      //
-// Pin 16 = D1                      //
-//////////////////////////////////////
+////////////////////////////////////////////
+// LK-3000 Cartridge Port                 //
+// Pin  1 = ~CLR button -> Arduino pin A2 //
+// Pin  2 = ~KEYSTB -> Arduino pin A1     //
+// Pin  3 = ~DWSTB -> Arduino pin A0      //
+// Pin  4 = A3 -> Arduino pin 11          //
+// Pin  5 = A2 -> Arduino pin 10          //
+// Pin  6 = Vout                          //
+// Pin  7 = Ground -> Arduino GND         //
+// Pin  8 = +5V                           //
+// Pin  9 = D5 -> Arduino pin 7           //
+// Pin 10 = D4 -> Arduino pin 6           //
+// Pin 11 = A0 -> Arduino pin 8           //
+// Pin 12 = A1 -> Arduino pin 9           //
+// Pin 13 = D0 -> Arduino pin 2           //
+// Pin 14 = D3 -> Arduino pin 5           //
+// Pin 14 = D2 -> Arduino pin 4           //
+// Pin 16 = D1 -> Arduino pin 3           //
+////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////
 // Notes:                                                              //
