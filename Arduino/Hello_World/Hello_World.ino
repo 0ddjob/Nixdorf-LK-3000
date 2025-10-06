@@ -42,7 +42,8 @@ const int CLR_PIN = A2; // Clear key input (active low)
 /////////////////////////////////////////////////////////////////////////
 
 // Keyboard matrix (4 columns x 8 rows)
-const String KEY_MAP[8][4] = {
+const String KEY_MAP[8][4] = 
+{
 // COL1     COL2     COL3    COL4
   {"A",     "B",     "C",    "D"},  // ROW1
   {"J",     "K",     "L",    "M"},  // ROW2
@@ -54,7 +55,8 @@ const String KEY_MAP[8][4] = {
   {"[def]", "[stp]", "[sp]", "[f]"} // ROW8
 };
 
-void setup() {
+void setup() 
+{
   Serial.begin(9600);
   Serial.println("LK-3000 Interface Ready");
 
@@ -82,7 +84,8 @@ void loop()
 }
 
 // Set pins for display writing (outputs)
-void setDisplayMode() {
+void setDisplayMode() 
+{
   for (int i = 0; i < 6; i++) 
   {
     pinMode(D_PINS[i], OUTPUT);
@@ -111,10 +114,9 @@ void setKeyboardMode()
 }
 
 // Write a character to a specific position (0-15)
-// There are four DL-1414 display modules, each with four characters -> 16 in total
-void writeChar(byte pos, char c, bool d6 = false) 
+void writeChar(byte pos, char c)
 {
-  // Ensure character is in DL-1414 range (0x20 to 0x5F)
+  // Ensure character is in DL1414 range (0x20 to 0x5F)
   if (c < 0x20 || c > 0x5F) c = ' '; // Default to space if out of range
 
   // Set address (A0-A3)
@@ -123,14 +125,16 @@ void writeChar(byte pos, char c, bool d6 = false)
   digitalWrite(A_PINS[2], (pos & 0x04) ? HIGH : LOW);
   digitalWrite(A_PINS[3], (pos & 0x08) ? HIGH : LOW);
 
-  // Set data (D0-D4, D5 controls D6)
-  c = c - 0x20; // Shift ASCII to 0x00-0x3F for 6-bit base
+  // Set data (D0-D5, where D5 controls D6 via CD4503BE)
+  // For 0x20-0x3F: D6=0, D5=1; for 0x40-0x5F: D6=1, D5=0
+  bool d5 = (c >= 0x40) ? LOW : HIGH; // D5=0 for 0x40-0x5F, D5=1 for 0x20-0x3F
+  c = c - 0x20; // Shift ASCII to 0x00-0x3F for D0-D4
   digitalWrite(D_PINS[0], (c & 0x01) ? HIGH : LOW);
   digitalWrite(D_PINS[1], (c & 0x02) ? HIGH : LOW);
   digitalWrite(D_PINS[2], (c & 0x04) ? HIGH : LOW);
   digitalWrite(D_PINS[3], (c & 0x08) ? HIGH : LOW);
   digitalWrite(D_PINS[4], (c & 0x10) ? HIGH : LOW);
-  digitalWrite(D_PINS[5], d6 ? LOW : HIGH); // D5 low for D6=1, high for D6=0
+  digitalWrite(D_PINS[5], d5); // D5 controls D6 (inverse)
 
   // Pulse strobe
   digitalWrite(DWSTRB_PIN, LOW);
@@ -146,15 +150,16 @@ void displayString(String str, int offset)
   {
     char c = ' '; // Default space
     if (i + offset < str.length()) c = str.charAt(i + offset);
-    writeChar(i, c, false); // D6=0 (D5 high) for 0x20-0x5F
+    writeChar(i, c);
   }
 }
 
 // Clear the display (write spaces to all positions)
 void clearDisplay() 
 {
-  for (int i = 0; i < 16; i++) {
-    writeChar(i, ' ', false); // D6=0
+  for (int i = 0; i < 16; i++) 
+  {
+    writeChar(i, ' ');
   }
 }
 
@@ -195,9 +200,10 @@ void scanKeyboard()
 
   // Check clear key
   pinMode(CLR_PIN, INPUT_PULLUP);
-  if (digitalRead(CLR_PIN) == LOW)
+  if (digitalRead(CLR_PIN) == LOW) 
   {
     Serial.println("[clr] key pressed");
+    clearDisplay(); // Clear display on CLR
   }
 
   // Restore display mode
