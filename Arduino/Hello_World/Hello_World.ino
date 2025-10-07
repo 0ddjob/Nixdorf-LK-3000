@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Test Arduino Uno sketch to interface with Nixdorf LK-3000 via cartridge port //
-// Scrolls "HELLO WORLD!", scans keyboard                                       //
-// Brett Hallen, 6-Oct-2025                                                     //
+// Scrolls "HELLO WORLD!" circularly, scans keyboard                           //
+// Brett Hallen, 6-Oct-2025, modified for circular scrolling                   //
 //////////////////////////////////////////////////////////////////////////////////
 
 // Pin assignments for cartridge port
@@ -10,6 +10,8 @@ const int A_PINS[4] = {8, 9, 10, 11}; // A0 to A3 address bus
 const int DWSTRB_PIN = A0; // Display write strobe (active low)
 const int KEYSTRB_PIN = A1; // Keyboard strobe (active low)
 const int CLR_PIN = A2; // Clear key input (active low)
+const bool DEBUG_PRINTS = true;
+const int DISP_POS[16] = {0xF, 0xE, 0xD, 0xC, 0xB, 0xA, 0x9, 0x8, 0x7, 0x6, 0x5, 0x4, 0x3, 0x2, 0x1, 0x0}; // Address corresponding to position
 
 ////////////////////////////////////////////
 // LK-3000 Cartridge Port                 //
@@ -27,7 +29,7 @@ const int CLR_PIN = A2; // Clear key input (active low)
 // Pin 12 = A1 -> Arduino pin 9           //
 // Pin 13 = D0 -> Arduino pin 2           //
 // Pin 14 = D3 -> Arduino pin 5           //
-// Pin 14 = D2 -> Arduino pin 4           //
+// Pin 15 = D2 -> Arduino pin 4           //
 // Pin 16 = D1 -> Arduino pin 3           //
 ////////////////////////////////////////////
 
@@ -41,10 +43,40 @@ const int CLR_PIN = A2; // Clear key input (active low)
 // D6 low when D5 high (buffer disabled, pulled low by 680Ω).          //
 /////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////
+// A4-A0 addresses for display offsets: //
+// DIG15 = left-most character          //
+// DIG0 = right-most character          //
+// Val A3 A2 A1 A0     Position         //
+//   0  L  L  L  L ... DIG15            //
+//   1  L  L  L  H ... DIG14            //
+//   2  L  L  H  L ... DIG13            //
+//   3  L  L  H  H ... DIG12            //
+//   4  L  H  L  L ... DIG11            //
+//   5  L  H  L  H ... DIG10            //
+//   6  L  H  H  L ... DIG9             //
+//   7  L  H  H  H ... DIG8             //
+//   8  H  L  L  L ... DIG7             //
+//   9  H  L  L  H ... DIG6             //
+//   A  H  L  H  L ... DIG5             //
+//   B  H  L  H  H ... DIG4             //
+//   C  H  H  L  L ... DIG3             //
+//   D  H  H  L  H ... DIG2             //
+//   E  H  H  H  L ... DIG1             //
+//   F  H  H  H  H ... DIG0             //
+//////////////////////////////////////////
+
 // Keyboard matrix (4 columns x 8 rows)
+// I *think* these are the special keys:
+// [def] = define
+// [bs] = backspace
+// [stp] = step
+// [sp] = space
+// [f] = function
+// [clr] = clear
 const String KEY_MAP[8][4] = 
 {
-// COL1     COL2     COL3    COL4
+  // COL1     COL2     COL3    COL4
   {"A",     "B",     "C",    "D"},  // ROW1
   {"J",     "K",     "L",    "M"},  // ROW2
   {"S",     "T",     "U",    "V"},  // ROW3
@@ -55,28 +87,47 @@ const String KEY_MAP[8][4] =
   {"[def]", "[stp]", "[sp]", "[f]"} // ROW8
 };
 
+// Additionally the keys have shifted, calculator-like functions
+// Maybe accessed via [f] key as this doesn't have a shifted function
+const String SHIFTED_KEY_MAP[8][4] = 
+{
+  // COL1     COL2     COL3      COL4
+  {"[met]", "[us]",  "[x->m]", "[k]"}, // ROW1
+  {"[c1]",  "[c2]",  "[rm]",   "%"},   // ROW2
+  {"[exc]", "[+/-]", "[m+]",   "0"},   // ROW3
+  {"7",     "8",     "9",      "÷"},   // ROW4
+  {"4",     "5",     "6",      "+"},   // ROW5
+  {"1",     "2",     "3",      "."},   // ROW6
+  {"[p2]",  "[p1]",  "-",      "*"},   // ROW7
+  {"[p4]",  "[p3]", "[=]",     ""}     // ROW8
+};
+
 void setup() 
 {
   Serial.begin(9600);
-  Serial.println("LK-3000 Interface Ready");
+  Serial.println("Nixdorf LK-3000 Interface Ready");
 
   // Set pins for display mode by default
   setDisplayMode();
+  if (DEBUG_PRINTS) Serial.println(">> Display mode set");
 
   // Initial clear display
   clearDisplay();
+  if (DEBUG_PRINTS) Serial.println(">> Display cleared");
 
   // Test display with static text
   displayString("HELLO LK-3000   ", 0); // Display initial message
+  if (DEBUG_PRINTS) Serial.println(">> 'HELLO LK-3000' displayed");
+  delay(2000);
 }
 
 void loop() 
 {
-  // Scroll "HELLO WORLD! " across the display
-  static String message = "HELLO WORLD!    "; // Padding for scrolling
+  // Scroll "HELLO WORLD!" circularly across the display
+  static String message = "HELLO WORLD!    HELLO WORLD!    "; // Repeated for seamless circular scroll
   static int offset = 0;
   displayString(message, offset);
-  offset = (offset + 1) % (message.length() - 16 + 1); // Scroll step
+  offset = (offset + 1) % message.length(); // Circular scroll
   delay(300); // Scroll speed
 
   // Scan keyboard every loop
@@ -116,25 +167,37 @@ void setKeyboardMode()
 // Write a character to a specific position (0-15)
 void writeChar(byte pos, char c)
 {
-  // Ensure character is in DL1414 range (0x20 to 0x5F)
+  // Ensure character is in DL-1414 range (0x20 to 0x5F)
   if (c < 0x20 || c > 0x5F) c = ' '; // Default to space if out of range
+  
+  // Map digit position to actual DL-1414 address
+  int addr = DISP_POS[pos];
+  
+  if (DEBUG_PRINTS)
+  {
+    Serial.print(">> writeChar: pos = ");
+    Serial.print(pos);
+    Serial.print(", addr = ");
+    Serial.print(addr);
+    Serial.print(", c = ");
+    Serial.println(c);
+  }
 
   // Set address (A0-A3)
-  digitalWrite(A_PINS[0], (pos & 0x01) ? HIGH : LOW);
-  digitalWrite(A_PINS[1], (pos & 0x02) ? HIGH : LOW);
-  digitalWrite(A_PINS[2], (pos & 0x04) ? HIGH : LOW);
-  digitalWrite(A_PINS[3], (pos & 0x08) ? HIGH : LOW);
+  digitalWrite(A_PINS[0], (addr & 0x01) ? HIGH : LOW);
+  digitalWrite(A_PINS[1], (addr & 0x02) ? HIGH : LOW);
+  digitalWrite(A_PINS[2], (addr & 0x04) ? HIGH : LOW);
+  digitalWrite(A_PINS[3], (addr & 0x08) ? HIGH : LOW);
 
-  // Set data (D0-D5, where D5 controls D6 via CD4503BE)
-  // For 0x20-0x3F: D6=0, D5=1; for 0x40-0x5F: D6=1, D5=0
-  bool d5 = (c >= 0x40) ? LOW : HIGH; // D5=0 for 0x40-0x5F, D5=1 for 0x20-0x3F
-  c = c - 0x20; // Shift ASCII to 0x00-0x3F for D0-D4
+  // Set data (D0-D5)
+  // Valid ASCII range is 0x20 (010 0000) to 0x5F (101 1111)
+  // D6 is handled "automagically" by the LK-3000, always opposite to D5 value
   digitalWrite(D_PINS[0], (c & 0x01) ? HIGH : LOW);
   digitalWrite(D_PINS[1], (c & 0x02) ? HIGH : LOW);
   digitalWrite(D_PINS[2], (c & 0x04) ? HIGH : LOW);
   digitalWrite(D_PINS[3], (c & 0x08) ? HIGH : LOW);
   digitalWrite(D_PINS[4], (c & 0x10) ? HIGH : LOW);
-  digitalWrite(D_PINS[5], d5); // D5 controls D6 (inverse)
+  digitalWrite(D_PINS[5], (c & 0x20) ? HIGH : LOW);
 
   // Pulse strobe
   digitalWrite(DWSTRB_PIN, LOW);
@@ -149,7 +212,8 @@ void displayString(String str, int offset)
   for (int i = 0; i < 16; i++) 
   {
     char c = ' '; // Default space
-    if (i + offset < str.length()) c = str.charAt(i + offset);
+    int idx = (i + offset) % str.length(); // Wrap around for circular scroll
+    if (idx < str.length()) c = str.charAt(idx);
     writeChar(i, c);
   }
 }
@@ -186,6 +250,17 @@ void scanKeyboard()
     if (digitalRead(D_PINS[3]) == LOW) cols |= 0x08; // COL4 via D3
     digitalWrite(KEYSTRB_PIN, HIGH);
 
+    if (DEBUG_PRINTS)
+    {
+      if (cols)
+      {
+        Serial.print(">> scanKeyboard: row = ");
+        Serial.print(row);       
+        Serial.print(", cols = ");
+        Serial.println(cols);
+      }
+    }
+
     // Check for pressed keys
     for (int col = 0; col < 4; col++) 
     {
@@ -198,14 +273,11 @@ void scanKeyboard()
     }
   }
 
-  // Check clear key
+  // Check clear key - special handling - CLR connects to GND
   pinMode(CLR_PIN, INPUT_PULLUP);
   if (digitalRead(CLR_PIN) == LOW) 
   {
     Serial.println("[clr] key pressed");
-    clearDisplay(); // Clear display on CLR
+    clearDisplay();
   }
-
-  // Restore display mode
-  setDisplayMode();
 }
