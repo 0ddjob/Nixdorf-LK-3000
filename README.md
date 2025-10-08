@@ -26,7 +26,7 @@ With the machine out of the case for testing/development with the Arduino, the o
 ![LK-3000 development keyboard](/Images/Nixdorf_LK3000_Development_Keyboard.png)
 
 ## [Arduino Cartridge](/LK3000_Arduino_Cartridge)
-A design for a modern cartridge that uses the Arduino.
+A design for a modern cartridge that uses the Arduino instead of the original Mostek microcontroller & ROM combination.
 
 ![LK-3000 Arduino cartridge](/Images/Nixdorf_LK-3000_Arduino_Cartridge.png)
 
