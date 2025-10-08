@@ -1,0 +1,9 @@
+﻿Designator,Quantity,Value,Footprint,Package,MPN,DNP,Mount_Type,Description
+"C1, C4",2,100nF,C_Disc_D3.0mm_W2.0mm_P2.50mm,,,,tht,Unpolarized capacitor
+"C2, C3",2,22pF,C_Disc_D3.0mm_W2.0mm_P2.50mm,,,,tht,Unpolarized capacitor
+J1,1,FTDI,PinHeader_1x06_P2.54mm_Vertical,,,,tht,
+J2,1,Extra,PinHeader_1x08_P2.54mm_Vertical,,,,tht,"Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"
+J4,1,Cartridge,LK-3000_Cartridge,,,,tht,"Generic connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)"
+R1,1,10KΩ,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,,,,tht,Resistor
+U1,1,ATmega328P-P,DIP-28_W7.62mm,,,,tht,"20MHz, 32kB Flash, 2kB SRAM, 1kB EEPROM, DIP-28"
+Y1,1,16MHz,Crystal_HC49-4H_Vertical,,,,tht,Two pin crystal

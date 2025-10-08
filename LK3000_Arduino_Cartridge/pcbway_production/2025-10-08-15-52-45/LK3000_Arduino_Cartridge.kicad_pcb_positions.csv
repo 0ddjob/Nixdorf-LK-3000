@@ -1,0 +1,11 @@
+﻿pos_x,pos_y,rotation,side,designator,mpn,pack,footprint,value,mount_type
+151.13,-73.66,180.0,top,C1,,,C_Disc_D3.0mm_W2.0mm_P2.50mm,100nF,tht
+132.08,-99.06,-90.0,top,C2,,,C_Disc_D3.0mm_W2.0mm_P2.50mm,22pF,tht
+132.08,-109.22,90.0,top,C3,,,C_Disc_D3.0mm_W2.0mm_P2.50mm,22pF,tht
+168.91,-80.01,-90.0,top,C4,,,C_Disc_D3.0mm_W2.0mm_P2.50mm,100nF,tht
+168.91,-86.36,0.0,top,J1,,,PinHeader_1x06_P2.54mm_Vertical,FTDI,tht
+168.91,-105.41,0.0,top,J2,,,PinHeader_1x08_P2.54mm_Vertical,Extra,tht
+142.41,-59.92,0.0,top,J4,,,LK-3000_Cartridge,Cartridge,tht
+137.16,-81.28,-90.0,top,R1,,,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,10KΩ,tht
+142.24,-83.82,0.0,top,U1,,,DIP-28_W7.62mm,ATmega328P-P,tht
+137.16,-106.48,90.0,top,Y1,,,Crystal_HC49-4H_Vertical,16MHz,tht
