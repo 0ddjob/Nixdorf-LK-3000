@@ -8,8 +8,9 @@ The cartridges use the Mostek MK3870 CPU and MK3600 ROM.  The CPU contains its o
 ## Videos
 - [Part 1: first look & disassembly](https://youtu.be/9jknng2B5vs)
 - [Part 2: let's start hacking it](https://youtu.be/iGiR7imZPvE)
+- [Part 3: Hello World!](https://youtu.be/sHEaltcKjgI)
 
-## [Arduino Code](/Arduino/Test/Test.ino)
+## [Arduino Code](/Arduino/Hello_World/Hello_World.ino)
 The first new software written for the LK-3000 in 40 years?!  Some test code to see how it works - replaced the cartridge connector with a 16-way pin header for easy wiring up to an Arduino.<br>
 
 Check also the [July 1980 issue of Popular Electronics](/Documentation/Poptronics_July_1980.pdf) that describes how to re-use the LK-3000.
@@ -23,6 +24,11 @@ A schematic (KiCad 9) of the LK-3000.  The machine is essentially just a keyboar
 With the machine out of the case for testing/development with the Arduino, the original keyboard is not so easy to use.  So here's a simple replacement using Gateron KS-33 low profile key switches.
 
 ![LK-3000 development keyboard](/Images/Nixdorf_LK3000_Development_Keyboard.png)
+
+## [Arduino Cartridge](/LK3000_Arduino_Cartridge)
+A design for a modern cartridge that uses the Arduino.
+
+![LK-3000 Arduino cartridge](/Images/Nixdorf_LK-3000_Arduino_Cartridge.png)
 
 ## [Breakout Cartridge](/LK3000_Breakout_Cartridge)
 A design for a cartridge with breakout pin header so an external device can be connected for development/testing.
