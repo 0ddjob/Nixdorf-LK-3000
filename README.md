@@ -21,12 +21,12 @@ Check also the [July 1980 issue of Popular Electronics](/Documentation/Poptronic
 A schematic (KiCad 9) of the LK-3000.  The machine is essentially just a keyboard & display with the cartridges containing the processor, ROM and RAM (as appropriate).
 
 ## [Keyboard](/LK3000_Keyboard)
-With the machine out of the case for testing/development with the Arduino, the original keyboard is not so easy to use.  So here's a simple replacement using Gateron KS-33 low profile key switches.
+With the machine out of the case for testing/development with the Arduino, the original keyboard is not so easy to use.  So here's a simple replacement using 12mm tactile switches.
 
 ![LK-3000 development keyboard](/Images/Nixdorf_LK3000_Development_Keyboard.png)
 
 ## [Arduino Cartridge](/LK3000_Arduino_Cartridge)
-A design for a modern cartridge that uses the Arduino.
+A design for a modern cartridge that uses the Arduino instead of the original Mostek microcontroller & ROM combination.
 
 ![LK-3000 Arduino cartridge](/Images/Nixdorf_LK-3000_Arduino_Cartridge.png)
 
