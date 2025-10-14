@@ -11,7 +11,6 @@ const int DWSTRB_PIN = A0; // Display write strobe (active low)
 const int KEYSTRB_PIN = A1; // Keyboard strobe (active low)
 const int CLR_PIN = A2; // Clear key input (active low)
 const bool DEBUG_PRINTS = true;
-const int DISP_POS[16] = {0xF, 0xE, 0xD, 0xC, 0xB, 0xA, 0x9, 0x8, 0x7, 0x6, 0x5, 0x4, 0x3, 0x2, 0x1, 0x0}; // Address corresponding to position
 
 ////////////////////////////////////////////
 // LK-3000 Cartridge Port                 //
@@ -171,7 +170,8 @@ void writeChar(byte pos, char c)
   if (c < 0x20 || c > 0x5F) c = ' '; // Default to space if out of range
   
   // Map digit position to actual DL-1414 address
-  int addr = DISP_POS[pos];
+  //int addr = DISP_POS[pos];
+  int addr = ~pos; 
   
   if (DEBUG_PRINTS)
   {

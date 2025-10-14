@@ -13,3 +13,4 @@ LK3000_Keyboard/LK3000_Keyboard.kicad_prl
 LK3000_Arduino_Cartridge/fp-info-cache
 /LK3000_Arduino_Cartridge/LK3000_Arduino_Cartridge-backups
 LK3000_Arduino_Cartridge/LK3000_Arduino_Cartridge.kicad_prl
+*.lck
