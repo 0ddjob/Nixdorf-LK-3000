@@ -1,7 +1,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Test Arduino Uno sketch to interface with Nixdorf LK-3000 via cartridge port //
-// Scrolls "HELLO WORLD!" circularly, scans keyboard                           //
-// Brett Hallen, 6-Oct-2025, modified for circular scrolling                   //
+// Demonstrates: 16 character output to the DP-1414 modules                     //
+//               keyboard scanning                                              //
+//               key debouncing                                                 //
+//               using [f] to obtain shifted keys                               //
+// Brett Hallen, Oct 2025                                                       //
 //////////////////////////////////////////////////////////////////////////////////
 
 // Pin assignments for cartridge port
@@ -10,12 +13,13 @@ const int A_PINS[4] = {8, 9, 10, 11}; // A0 to A3 address bus
 const int DWSTRB_PIN = A0; // Display write strobe (active low)
 const int KEYSTRB_PIN = A1; // Keyboard strobe (active low)
 const int CLR_PIN = A2; // Clear key input (active low)
-const bool DEBUG_PRINTS = false;
-const bool dispMode = false;
-const bool keybMode = true;
+const bool DEBUG_PRINTS = false; // Print debugging text to serial, slows everything down
+const bool dispMode = false; // constant used for keyboard mode setting
+const bool keybMode = true; // constant used for display mode setting
 unsigned long lastDebounceTime = 0; // Last time a key was registered
 const unsigned long debounceDelay = 150; // Debounce period in milliseconds
 String lastKey = ""; // Track the last key pressed for state comparison
+bool isFunctionKeyHeld = false; // Track if [f] key is held
 
 ////////////////////////////////////////////
 // LK-3000 Cartridge Port                 //
@@ -131,11 +135,11 @@ void loop()
 {
   // Scroll "HELLO WORLD!" circularly across the display
   //static String message = "HELLO WORLD!    HELLO WORLD!    "; // Repeated for seamless circular scroll
-//  static String message ="0123456789ABCDEF";
-//  static int offset = 0;
-//  displayString(message, offset);
-//  offset = (offset + 1) % message.length(); // Circular scroll
-//  delay(100); // Scroll speed
+  //static String message = "0123456789ABCDEF";
+  //static int offset = 0;
+  //displayString(message, offset);
+  //offset = (offset + 1) % message.length(); // Circular scroll
+  //delay(100); // Scroll speed
 
   // Scan keyboard every loop
   scanKeyboard();
@@ -182,7 +186,7 @@ void writeChar(byte pos, char c)
 {
   // Convert lower case ASCII to upper case
   if (c > 0x60 && c < 0x7B)
-   {
+  {
     if (DEBUG_PRINTS)
     {
       Serial.print(">> writeChar: converting lower case to upper case, c=");
@@ -270,8 +274,40 @@ void scanKeyboard()
 {
   setMode(keybMode);
   digitalWrite(A_PINS[3], LOW); // A3 = 0 for keyboard (8 rows)
-  bool keyPressed = false; // Track if a key is pressed in this scan
+  bool keyPressed = false; // Track if any key is pressed in this scan
 
+  // Check [f] key first (ROW8, COL4)
+  digitalWrite(A_PINS[0], (7 & 0x01) ? HIGH : LOW); // ROW8 = 7
+  digitalWrite(A_PINS[1], (7 & 0x02) ? HIGH : LOW);
+  digitalWrite(A_PINS[2], (7 & 0x04) ? HIGH : LOW);
+  setStrobe(keybMode);
+  bool functionKeyPressed = (digitalRead(D_PINS[3]) == LOW); // COL4 via D3
+
+  if (functionKeyPressed)
+  {
+    keyPressed = true;
+    unsigned long currentTime = millis();
+    if (!isFunctionKeyHeld && (currentTime - lastDebounceTime >= debounceDelay))
+    {
+      // Register [f] key press only on initial press
+      Serial.println("Key pressed: [f]");
+      clearDisplay();
+      displayString("[f]", 0);
+      lastKey = "[f]";
+      lastDebounceTime = currentTime;
+    }
+    isFunctionKeyHeld = true; // Set flag to use SHIFTED_KEY_MAP
+    if (DEBUG_PRINTS && currentTime - lastDebounceTime < debounceDelay)
+    {
+      Serial.println("Debouncing [f]");
+    }
+  }
+  else
+  {
+    isFunctionKeyHeld = false; // Reset when [f] is released
+  }
+
+  // Scan the rest of the keyboard matrix
   for (int row = 0; row < 8; row++) 
   {
     // Set row address (A0-A2)
@@ -287,20 +323,27 @@ void scanKeyboard()
     if (digitalRead(D_PINS[2]) == LOW) cols |= 0x04; // COL3 via D2
     if (digitalRead(D_PINS[3]) == LOW) cols |= 0x08; // COL4 via D3
 
-     if (cols && DEBUG_PRINTS)
-     {
-        Serial.print(">> scanKeyboard: row = ");
-        Serial.print(row);       
-        Serial.print(", cols = ");
-        Serial.println(cols);
-     }
+    if (cols && DEBUG_PRINTS)
+    {
+      Serial.print(">> scanKeyboard: row = ");
+      Serial.print(row);       
+      Serial.print(", cols = ");
+      Serial.println(cols);
+    }
 
     // Check for pressed keys
     for (int col = 0; col < 4; col++) 
     {
       if (cols & (1 << col)) 
       {
-        String key = KEY_MAP[row][col];
+        // Skip [f] key here since it was handled above
+        if (row == 7 && col == 3) continue;
+
+        String key = isFunctionKeyHeld ? SHIFTED_KEY_MAP[row][col] : KEY_MAP[row][col];
+        // Skip empty keys in SHIFTED_KEY_MAP
+        if (key == "") continue;
+
+        keyPressed = true;
         unsigned long currentTime = millis();
         // Check if enough time has passed since the last key registration
         if (currentTime - lastDebounceTime >= debounceDelay)
@@ -309,12 +352,11 @@ void scanKeyboard()
           Serial.print("Key pressed: ");
           Serial.println(key);
           clearDisplay();
-          displayString(key,0);
+          displayString(key, 0);
           lastKey = key;
           lastDebounceTime = currentTime;
-          keyPressed = true;
         }
-        else if ((key == lastKey) && (DEBUG_PRINTS))
+        else if (key == lastKey && DEBUG_PRINTS)
         {
           Serial.print("Debouncing ");
           Serial.println(key);
@@ -324,18 +366,18 @@ void scanKeyboard()
     delay(2); // Pause between column check
   }
 
-// Check clear key - special handling
+  // Check clear key - special handling
   unsigned long currentTime = millis();
   if (digitalRead(CLR_PIN) == LOW) 
   {
+    keyPressed = true;
     if (currentTime - lastDebounceTime >= debounceDelay)
     {
       Serial.println("[clr] key pressed");
       clearDisplay();
-      displayString("[clr]",0);
+      displayString("[clr]", 0);
       lastKey = "[clr]";
       lastDebounceTime = currentTime;
-      keyPressed = true;
     }
     else if (DEBUG_PRINTS)
     {
