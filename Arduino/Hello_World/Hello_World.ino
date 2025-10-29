@@ -8,8 +8,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 // Pin assignments for cartridge port
-const int D_PINS[6] = {2, 3, 4, 5, 6, 7}; // D0 to D5 data bus
-const int A_PINS[4] = {8, 9, 10, 11}; // A0 to A3 address bus
+const int D_PINS[6] = {4, 2, 3, 5, 6, 7}; // D0 to D5 data bus
+const int A_PINS[4] = {8, A3, 10, 11}; // A0 to A3 address bus
 const int DWSTRB_PIN = A0; // Display write strobe (active low)
 const int KEYSTRB_PIN = A1; // Keyboard strobe (active low)
 const int CLR_PIN = A2; // Clear key input (active low)
